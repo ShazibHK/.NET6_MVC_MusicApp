@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{   
+     var countFreeSong = ViewBag.countFreeSong;  
+     var countPaidSong = ViewBag.countPaidSong; 
+     var countPaidPlayList = ViewBag.countPaidPlayList; 
+     var countFreePlayList = ViewBag.countFreePlayList; 
+}  
+            <div style="background-color: #f0f8ff;" class="col m-1 p-3 rounded border border-info">
+                <center>
+                <h4>
+                    Free Songs
+                </h4>
+                <h6 class="text-warning">
+                 @countFreeSong
+                    </h6>
+                </center>
+            </div>
+            <div style="background-color: #f0f8ff;" class="col m-1 p-3 rounded border border-info">
+                <center>
+                    <h4>
+                    Premium Songs
+                    </h4>
+                    <h6 class="text-warning">
+                        @countPaidSong
+                    </h6>
+                </center>
+            </div>
+            <div style="background-color: #f0f8ff;" class="col m-1 p-3 rounded border border-info">
+                <center>
+                    <h4>
+                    Free Libraries
+                    </h4>
+                    <h6 class="text-warning">
+                        @countFreePlayList
+                    </h6>
+                </center>
+            </div>
+            <div style="background-color: #f0f8ff;" class="col m-1 p-3 rounded border border-info">
+                <center>
+                    <h4>
+                    Premium Libraries
+                    </h4>
+                    <h6 class="text-warning">
+                        @countPaidPlayList
+                    </h6>
+                </center>
+            </div>

@@ -1,0 +1,66 @@
+﻿@model dynamic
+@{
+var SongNameGiven = ViewBag.SongNameGiven; 
+}
+<center>
+     <div style="margin-left:30%;margin-top:1%">
+           <form class=" d-flex" id="myForm" action="/Home/Search" method="Post">
+                <input style="width:500px" type="text" name="s"/>
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+           </form>
+     </div>
+     @foreach (var obj in @Model.Song)
+    {
+        @if (SongNameGiven==@obj.SongName)
+        {
+             <div style="margin-top: 100px; width:1000px" class="container bg-light">
+        <div class="row p-5">
+          <div class="col-4">
+            <img width="270px" height="270px" src="~/Images/Songs/@obj.Image" class="rounded mx-auto d-block" alt="...">
+          </div>
+          <div class="col-sm margin-top ">
+            <h3 class="ps-5">
+                @obj.SongName
+            </h3>
+            <div class="ps-5">
+                <div class="row">
+                    <div class="col-1">
+                        <h6>@obj.language</h6>
+                    </div>
+                    <div class="col-1">
+                        <h6>
+                            <small class="text-muted">@obj.type</small></h6>
+                    </div>
+                    <div class="col-2">
+                        <h6 style="color: red;">
+                            @obj.Year</h6>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ps-5"> 
+                <div class="row">
+                    <div class="col-5">
+                        <p>Duration @obj.duration</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="ps-5 row">
+                <div class="col-3">
+                     <audio controls>
+                      <source src="~/Audio/@obj.SongPath" type="audio/ogg">
+                              Your browser does not support the audio element.
+                    </audio>
+                </div>       
+            </div>
+            
+             </div>
+        </div>
+            </div>
+        }
+    }
+</center>
+
+
+   

@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <ul>
+        <li class="nav-item">
+            <a class="nav-link" href="#">User:@UserManager.GetUserName(User)<br /></a>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" method="post" class="form-inline" asp-controller="Account" asp-action="LogOff">
+                <button type="submit" class="btn nav-link">Logout</button>
+            </form>
+        </li>
+        <li class="nav-item">
+             @if (User.Identity.IsAuthenticated)
+             {
+                 <a asp-action="EnableAuthenticator" asp-controller="Account" style="text-decoration:none">&nbsp&nbspSetup Two Factor Auth</a>
+             }
+        </li>
+        </ul>
+    }
+    else
+    {
+            <a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+        
+            <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+       
+    }
+</ul>

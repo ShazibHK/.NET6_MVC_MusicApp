@@ -1,0 +1,83 @@
+﻿@model Song
+<!doctype html>
+<html lang="en" >
+<head>
+    <link rel="stylesheet" href="../css/Navbar.css">
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body >
+     <header>
+       <partial name="_Nav"/>
+     </header>
+   
+    <div id="Form-AddSong" style="margin-top: 50px;background-color:#F0F0F0" class="container">
+        <div class="container" style="width: 800px;">
+            <form method="post">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="SongName">Song Name:&nbsp&nbsp</label>
+                        <input asp-for="SongName" type="text" class="form-control" id="SongName">
+                        <span asp-validation-for="SongName" class="text-danger"></span>
+                    </div>
+                    <div style="padding-left: 50px;" class="form-group">
+                        <label for="language">Language:</label>
+                        <input asp-for="language"  type="text" class="form-control" id="language">
+                        <span asp-validation-for="language" class="text-danger"></span>
+                    </div>
+                    
+                </div>
+                <div style="padding-top: 30px;" class="form-inline">
+                     <div style="padding-left: 50px;" class="form-group">
+                        <label for="duration">Duration</label>
+                        <input asp-for=duration type="text" class="form-control" id="duration">
+                        <span asp-validation-for="duration" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="Year">Release Year:</label>
+                        <input asp-for="Year" type="text" class="form-control" id="Year">
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                  
+                     <div class="form-group">
+                        <label for="Year">Type</label>
+                         <select asp-for="type" id="dropdown">
+                            <option value="Free">Free</option>
+                            <option value="Paid">Paid</option>
+                          </select>
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                </div>       
+              
+                <div style="padding-top: 30px;" class="form-inline">
+                 <div class="form-group">
+                        <label for="pwd">Library:</label>
+                        <select class="form-control" name = "dropdown">
+                            <option value = "taj" selected>No Library</option>
+                            <option value = "china">lib 1</option>
+                            </select>
+                    </div>
+                </div>
+                <div style="padding-top: 30px;" class="form-inline">
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                </div>
+                <div style="padding-top: 30px;" class="form-inline">
+                    <div class="form-group">
+                       <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>          
+            </form> 
+            <div class="container" style="margin: 10px;">
+                <h5>Add in Existing libraries</h5>
+            </div>
+
+                
+            
+        </div>
+    </div>
+
+</body>
+</html>

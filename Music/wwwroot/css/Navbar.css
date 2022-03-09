@@ -1,0 +1,14 @@
+.space{
+    padding-left: 15px;
+}
+.space-logo{
+    padding-left: 5px;
+    padding-right:30px;
+}
+
+.botton-border{
+    transition-duration: 0.5s;
+}
+.margin-top{
+    margin-top: 30px;
+}

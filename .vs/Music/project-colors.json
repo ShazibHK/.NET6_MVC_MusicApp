@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5c5ae211-a075-41e9-b52f-e9ae2dd897e9": {
+      "ProjectGuid": "5c5ae211-a075-41e9-b52f-e9ae2dd897e9",
+      "DisplayName": "Music",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "5c537dee-648e-4334-af3f-5acb446c7e90": {
+      "ProjectGuid": "5c537dee-648e-4334-af3f-5acb446c7e90",
+      "DisplayName": "XUnitTestCases",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

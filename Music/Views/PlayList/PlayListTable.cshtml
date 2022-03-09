@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PlayList>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="mx-auto" style="width:95%">
+          <table  id="dtBasicExample" class="table table-striped table-bordered table-sm mt-4 me-4" cellspacing="0">
+            <thead>
+              <tr>
+                <th class="th-sm">PlayList Name
+          
+                </th>
+                <th class="th-sm">Type
+          
+                </th>
+                <th class="th-sm">Edit
+          
+                </th>
+                <th class="th-sm">Delete
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+             @foreach(var obj in Model)
+               {
+              <tr>
+                <td> @obj.PlayListName</td>
+                <td> @obj.type</td>
+                <td><a href="./pages/AddSong.html"><button class="botton-border btn btn-outline-secondary" type="button">Edit</button></a> </td>
+                <td><a href="./pages/AddLibrary.html"><button class="botton-border btn btn-outline-secondary" type="button">Delete</button></a> 
+                </td>
+              </tr>
+              }
+            </tbody>      
+            </table>
+        </div>h

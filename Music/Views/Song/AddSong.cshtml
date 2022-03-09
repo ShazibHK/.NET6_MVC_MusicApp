@@ -1,0 +1,94 @@
+﻿@using Music.MultipleModel
+@model SongAndPlayList
+
+<!doctype html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="../css/Navbar.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<partial name="_Nav" />
+	</header>
+
+	<div id="Form-AddSong" style="margin-top: 50px;background-color:#F0F0F0" class="container">
+		<div class="container" style="width: 800px;">
+			<form method="post" enctype="multipart/form-data">
+				<div style="padding-top: 10px;" class="form-inline">
+					<div class="form-group">
+						<label asp-for="Song.SongName">Song Name:&nbsp&nbsp</label>
+						<input required asp-for="Song.SongName" type="text" name="SongName" class="form-control" id="SongName">
+						<span asp-validation-for="Song.SongName" class="text-danger"></span>
+
+					</div>
+					<div style="padding-top: 10px;" class="form-group">
+						<label asp-for="Song.language">Language:</label>
+						<input required asp-for="Song.language" type="text" name="language" class="form-control" id="language">
+						<span asp-validation-for="Song.language" class="text-danger"></span>
+					</div>
+
+				</div>
+				<div style="padding-top: 10px;" class="form-inline">
+					<div class="form-group">
+						<label asp-for="Song.duration">Duration</label>
+						<input required asp-for=Song.duration type="text" name="duration" class="form-control" id="duration">
+						<span asp-validation-for="Song.duration" class="text-danger"></span>
+					</div>
+					<div style="padding-top: 10px;" class="form-group">
+						<label asp-for="Song.Year">Release Year:</label>
+						<input required asp-for="Song.Year" type="text" name="Year" class="form-control" id="Year">
+						<span asp-validation-for="Song.Year" class="text-danger"></span>
+					</div>
+
+					<div style="padding-top: 10px;" class="form-group">
+						<label asp-for="Song.type">Type</label>
+						<select class="form-control" asp-for="Song.type" id="dropdown" name="type">
+							<option value="Free">Free</option>
+							<option value="Paid">Paid</option>
+						</select>
+						<span asp-validation-for="Song.type" class="text-danger"></span>
+					</div>
+				</div>
+				<div style="padding-top: 10px;" class="form-inline">
+					<div class="form-group">
+						<label asp-for="@Model.Song.PlayListId">Library:</label>
+						<select class="form-control" name="PlayListId" asp-for="@Model.Song.PlayListId">
+			    				<option selected value="0" name="PlayListId">NO PlayList Selected</option>
+							@foreach (var P in @Model.PlayList)
+							{
+								<option name="PlayListId" value="@P.PlayListId">@P.PlayListName</option>
+							}
+						</select>
+					</div>
+				</div>
+
+				<div>
+					<label>Image</label>
+					<input id="Image" required type="file" name="file" class="form-control"/>
+					<span asp-validation-for="@Model.Song.Image" class="text-danger"></span>
+				</div>
+				<div>
+					<label>Audio</label>
+					<input id="Image" required type="file" name="a_file" class="form-control"/>
+					<span asp-validation-for="@Model.Song.Image" class="text-danger"></span>
+				</div>
+
+
+				<div style="padding-top: 30px;" class="form-inline">
+					<div class="form-group">
+						<a><button class="btn btn-primary" type="submit">Submit</button></a>
+					</div>
+				</div>
+				<div style="padding-top: 10px;" class="form-group">
+
+
+			</form>
+
+		</div>
+	</div>
+
+</body>
+</html>

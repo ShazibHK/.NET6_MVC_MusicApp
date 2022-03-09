@@ -1,0 +1,47 @@
+﻿@model PlayList
+<!doctype html>
+<html lang="en" >
+<head>
+    <link rel="stylesheet" href="../css/Navbar.css">
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body >
+     <header>
+       <partial name="_Nav"/>
+     </header>
+   
+    <div id="Form-AddSong" style="margin-top: 50px;background-color:#F0F0F0" class="container">
+        <div class="container" style="width: 800px;">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="SongName">PlayList Name:&nbsp&nbsp</label>
+                        <input asp-for="PlayListName" type="text" class="form-control" id="SongName">
+                        <span asp-validation-for="PlayListName" class="text-danger"></span>
+                    </div>
+                     <div class="form-group">
+                        <label for="type">Type:</label>
+                         <select class="form-control" asp-for="type" id="dropdown">
+                            <option value="Free">Free</option>
+                            <option value="Paid">Paid</option>
+                          </select>
+                        <span asp-validation-for="type" class="text-danger"></span>
+                 </div>
+                  <div>
+					<label>Image</label>
+					<input id="Image" required type="file" name="file" class="form-control" value="@Model.Image"/>
+					<span asp-validation-for="Image" class="text-danger"></span>
+				</div>
+                    <div class="form-group" style="margin-top: 10px;padding-bottom:10px">
+                        <a><button class="btn btn-primary" type="submit">Submit</button></a>
+                    </div>
+                </div>       
+            </form> 
+            <div class="container" style="margin: 10px;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

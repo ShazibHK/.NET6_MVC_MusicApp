@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<script type="text/javascript">
+function clearField() {
+   if(document.getElementById) {
+      document.chatform.reset();
+   }
+}
+</script>
+<header>
+	<nav style="background-color:#a3c1ad" class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3">
+		<div class="container-fluid">
+
+			<a class="navbar-brand space-logo" style="font-family:Cursive;" href="#"><img src="~/lib/melody.png" width="50">&nbsp&nbspMelody</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+				<ul class="navbar-nav flex-grow-1">
+					<li class="nav-item">
+						<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+					</li>
+
+					@if (User.IsInRole("Admin"))
+					{
+						<li class="nav-item">
+							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Dashboard">Dashboard</a>
+						</li>
+					}
+					@if (User.IsInRole("Admin") || User.IsInRole("User"))
+					{
+
+						<li class="nav-item">
+
+							<!-- Button trigger modal -->
+						<a class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Profile
+							</a>
+							<!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Profile</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body p-3">
+											<div>
+												<partial name="_LoginPartialCustom" />
+											</div>
+										</div>
+									</div>
+						</li>
+					}
+					<li style="" class="nav-item">
+						<div class="w-50 float-left">
+							<form class=" d-flex" id="myForm" action="/Home/Search" method="Post" >
+								<input  style="border-radius: 5px;
+  border: 0.01px solid black; margin-right:2px" type="text" name="s"  id="input">
+								<button class="btn btn-outline-secondary" type="submit">Search</button>
+							</form>
+						</div>
+					</li>
+				</ul>
+				@if (!SignInManager.IsSignedIn(User))
+				{
+					<a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+
+					<a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+				}
+				else
+				{
+
+					<form id="logoutForm" method="post" class="form-inline" asp-controller="Account" asp-action="LogOff">
+						<button type="submit" class="btn nav-link">Logout</button>
+					</form>
+				}
+
+			</div>
+		</div>
+	</nav>
+</header>
